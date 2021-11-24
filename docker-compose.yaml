@@ -4,6 +4,7 @@ services:
   nginx:
     build:
       context: nginx
+    image: esdrasvitor/fullcycle2-docker-desafio2-nginx
     container_name: nginx
     networks:
       - node-network
@@ -14,6 +15,7 @@ services:
   app: 
     build:
       context: node
+    image: esdrasvitor/fullcycle2-docker-desafio2-node
     container_name: app
     entrypoint: dockerize -wait tcp://db:3306 -timeout 360s docker-entrypoint.sh node index.js
     networks:
